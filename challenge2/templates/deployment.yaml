@@ -14,7 +14,7 @@ spec:
         app: nginx
     spec:
       containers:
-        {{- include "nginx" . " nindent 8"}}
+        {{- include "nginx" . | nindent 8"}}
         {{- if eq .Values.proxy.enabled true -}}
         {{- include "proxy" . | nindent 8 }}
         {{- end -}}
