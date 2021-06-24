@@ -7,8 +7,8 @@ deployment:
   image:
     app: httpd
     version: 2.4
-  service:
-    type: NodePort
-    port: 31234
-    name: challengesvc
+service:
+  type: NodePort
+  port: 31234
+  name: challengesvc
 
