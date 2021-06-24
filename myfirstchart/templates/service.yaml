@@ -1,16 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.service.name }}
+  name: {{ include "myfirstchart.fullname" . }}
   labels:
-    app: nginx
+    {{- include "myfirstchart.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
-      nodePort: {{ .Values.service.nodePort }}
-      targetPort: {{ .Values.service.targetPort }}
+      targetPort: http
       protocol: TCP
       name: http
   selector:
-    app: nginx
+    {{- include "myfirstchart.selectorLabels" . | nindent 4 }}
