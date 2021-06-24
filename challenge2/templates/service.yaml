@@ -8,14 +8,14 @@ spec:
   type: {{ .Values.service.type }}
   ports:
     - targetPort: {{ .Values.service.targetPort }}
-      {{ if eq .Values.service.type "NodePort" }} 
+      {{- if eq .Values.service.type "NodePort" }} 
       nodePort: 30001
       port: 80
-      {{ else if eq .Values.service.type "LoadBalancer" }}
+      {{- else if eq .Values.service.type "LoadBalancer" }}
       port: 8001
-      {{ else }}
+      {{- else }}
       port: 8180
-      {{ end }}
+      {{- end }}
       protocol: TCP
       name: http
   selector:
