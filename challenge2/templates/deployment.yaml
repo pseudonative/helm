@@ -14,12 +14,7 @@ spec:
         app: nginx
     spec:
       containers:
-        - name: nginxcontainer
-          image: "{{ .Values.deployment.image.app }}:{{ .Values.deployment.image.version }}"
-          ports:
-            - name: http
-              containerPort: 80
-              protocol: TCP
+        {{- include "nginx" . " nindent 8"}}
         {{- if eq .Values.proxy.enabled true -}}
         {{- include "proxy" . | nindent 8 }}
         {{- end -}}
