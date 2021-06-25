@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ include "myfirstchart.fullname" . }}
   labels:
-    {{- include "myfirstchart.labels" . | nindent 4 }}
+    app: nginx
 spec:
   type: {{ .Values.service.type }}
   ports:
@@ -12,4 +12,4 @@ spec:
       protocol: TCP
       name: http
   selector:
-    {{- include "myfirstchart.selectorLabels" . | nindent 4 }}
+    app: nginx
