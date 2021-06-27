@@ -6,10 +6,11 @@
 
 3. Labels - app apache
 
-4. Template the deployment name; image; and version
-
+4. Template the deployment name; image; and version, replicas
+   replicas 1
    deployment name - challenge 
    image httpd version 2.4 
+   name apache
 
 5. template the service 
    name - challengesvc
