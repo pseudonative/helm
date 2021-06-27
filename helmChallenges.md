@@ -1,23 +1,23 @@
 ### challenge 1
-1: create a new chart called challenge.
+# 1: create a new chart called challenge.
   helm create challenge 
 
-2: Remove all the files except service and deployment
+# 2: Remove all the files except service and deployment
 
-3. Labels - app apache
+# 3. Labels - app apache
 
-4. Template the deployment name; image; and version, replicas
+# 4. Template the deployment name; image; and version, replicas
    replicas 1
    deployment name - challenge 
    image httpd version 2.4 
    name apache
 
-5. template the service 
+# 5. template the service 
    name - challengesvc
    type  nodeport
    nodeport port 31234
 
-6. deploy the chart 
+# 6. deploy the chart 
 
 check the default apache page - gcloud commpute ssh node its on
 
