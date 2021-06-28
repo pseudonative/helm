@@ -22,4 +22,8 @@ spec:
               protocol: TCP
         {{- if eq .Values.proxy.enabled true -}} 
         {{- include "proxy" . | nindent 8 }}
+        {{- else if }}
+
+        {{- else }}
+        
         {{- end -}}
