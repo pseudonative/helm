@@ -15,7 +15,7 @@ spec:
         app: apache
     spec:
       containers:
-        - name: {{ .Values.deployment.containername }}
+        - name: {{ .Values.deployment.image.containername }}
           image: "{{ .Values.deployment.image.app }}:{{ .Values.deployment.image.version }}"
           ports:
             - name: http
