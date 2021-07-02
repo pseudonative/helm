@@ -7,9 +7,15 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      nodePort: {{ .Values.service.nodePort }}
-      targetPort: {{ .Values.service.targetPort }}
+    - targetPort: {{ .Values.service.targetPort }}
+      {{ if eq .Values.service.type "NodePort" }}
+      nodePort: 30001
+      port: 80
+      {{ else if eq .Values.service.type "LoadBalancer" }}
+      port: 8001
+      {{ else }}
+      port: {{ .Values.service.port }}
+      {{ end }}
       protocol: TCP
       name: http
   selector:
