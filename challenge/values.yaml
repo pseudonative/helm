@@ -7,7 +7,7 @@ deployment:
   replicaCount: 1
   image:
     app: httpd
-    version: latest
+    version: 2.4
  
 service:
   name: apacheservice
