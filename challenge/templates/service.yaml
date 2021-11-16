@@ -6,6 +6,10 @@ metadata:
    app: apache
 spec:
   type: {{ .Values.service.type }}
+  loadBalancerSourceRanges: |-
+    {{ - range $.Values.loadbalancerSourceIP }}
+    - {{ . | title | quote }}
+    {{- end }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}
