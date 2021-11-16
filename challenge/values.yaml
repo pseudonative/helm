@@ -17,7 +17,6 @@ service:
   protocol: TCP
 
 loadblancerSourceIP: 
-  allowed: 
     - 98.53.204.64/32,
     - 98.53.204.65/32,
     - 98.53.204.66/32,
