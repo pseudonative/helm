@@ -2,9 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/load-balancer-source-ranges: 
-    {{- range .Values.loadblancerSourceIP  }}
-    {{.}}{{- end}}
+    service.beta.kubernetes.io/load-balancer-source-ranges: {{- range .Values.loadblancerSourceIP  }}{{.}}{{- end}}
   name: {{ .Values.service.name }}
   labels:
    app: apache
