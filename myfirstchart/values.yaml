@@ -8,7 +8,6 @@ deployment:
 
 service:
   name: helmservice
-  type: NodePort
+  type: LoadBalancer
   port: 80
   targetPort: 80
-  nodePort: 31234
