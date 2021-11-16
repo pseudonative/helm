@@ -2,14 +2,15 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/load-balancer-source-ranges: "98.53.204.69/32"
+    service.beta.kubernetes.io/load-balancer-source-ranges: 
+      {{ - range $.Values.loadBalancerSourceIP }}
+      - {{ . | title| quote }}
+      {{- end -}}
   name: {{ .Values.service.name }}
   labels:
    app: apache
 spec:
   type: {{ .Values.service.type }}
-  # loadBalancerSourceRanges: 
-  # - 98.53.204.64/32
   ports:
     - port: {{ .Values.service.port }}
       targetPort: {{ .Values.service.targetPort }}

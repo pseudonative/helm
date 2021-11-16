@@ -16,5 +16,7 @@ service:
   targetPort: 80
   protocol: TCP
 
-# loadblancerSourceIP:
-#   - 98.53.204.64/32
+loadblancerSourceIP:
+  - 98.53.204.64/32
+  - 98.53.204.65/32
+  - 98.53.204.66/32
