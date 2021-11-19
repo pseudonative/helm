@@ -9,7 +9,6 @@ spec:
     matchLabels: {{- include "mylabels" . | nindent 6 }}
   template:
     metadata:
-      annotations:
       labels: {{- include "mylabels" . | nindent 8 }}
     spec:
       containers:
