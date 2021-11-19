@@ -1,0 +1,32 @@
+global:
+  service:
+    name: globalservice
+    type: LoadBalancer
+    port: 2380
+    targetPort: 2380
+    nodePort: 31234
+
+myfirstchart:
+  deployment:
+    name: subchartdeploy
+    replicaCount: 3
+    image:
+      app: nginx
+      version: latest
+
+
+deployment:
+  name: helmdeployment
+  replicaCount: 1
+  image:
+    app: nginx
+    version: latest
+
+service:
+  name: helmservice
+  type: LoadBalancer
+  port: 80
+  targetPort: 80
+
+proxy:
+  enabled: false
