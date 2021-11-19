@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.global.service }}
+  name: {{ .Values.global.service.name }}
   labels: {{- include "mylabels" . | nindent 4 }}
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.global.service.type }}
   ports:
-    - targetPort: {{ .Values.service.targetPort }}
-      {{- if eq .Values.service.type "NodePort" }}
+    - targetPort: {{ .Values.global.service.targetPort }}
+      {{- if eq .Values.global.service.type "NodePort" }}
       nodePort: 30001
       port: 80
-      {{- else if eq .Values.service.type "LoadBalancer" }}
+      {{- else if eq .Values.global.service.type "LoadBalancer" }}
       port: 8001
       {{- else }}
       port: 8180

@@ -3,15 +3,15 @@ kind: Service
 metadata:
   annotations:
     service.beta.kubernetes.io/load-balancer-source-ranges: {{ .Values.coando.loadblancerSourceIP }}
-  name: {{ .Values.global.service }}
+  name: {{ .Values.global.service.name }}
   labels:
    app: apache
 spec:
-  type: {{ .Values.service.type }}
+  type: {{ .Values.global.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: {{ .Values.service.targetPort }}
+    - port: {{ .Values.global.service.port }}
+      targetPort: {{ .Values.global.service.targetPort }}
       name: apache
-      protocol: {{ .Values.service.protocol }}
+      protocol: {{ .Values.global.service.protocol }}
   selector:
     app: apache

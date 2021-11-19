@@ -54,9 +54,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 Create the name of the service account to use
 */}}
 {{- define "myfirstchart.serviceAccountName" -}}
-{{- if .Values.serviceAccount.create }}
-{{- default (include "myfirstchart.fullname" .) .Values.serviceAccount.name }}
+{{- if .Values.globalAccount.create }}
+{{- default (include "myfirstchart.fullname" .) .Values.globalAccount.name }}
 {{- else }}
-{{- default "default" .Values.serviceAccount.name }}
+{{- default "default" .Values.globalAccount.name }}
 {{- end }}
 {{- end }}
