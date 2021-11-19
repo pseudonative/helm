@@ -13,7 +13,7 @@ spec:
       labels: {{- include "mylabels" . | nindent 8 }}
     spec:
       containers:
-        {{- include "nginx" . | nindent 8 }}
+        {{- include "nginx" . | indent 8 }}
         {{- if eq .Values.proxy.enabled true -}}
         {{- include "proxy" . | nindent 8}}
         {{- end -}}
