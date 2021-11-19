@@ -1,4 +1,4 @@
-{{- def "mylabels" -}}
+{{- define "mylabels" -}}
 app: nginx
 location: frontend
 server: proxy
