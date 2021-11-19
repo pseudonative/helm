@@ -1,5 +1,5 @@
 {{- def "mylabels" -}}
 app: nginx
 location: frontend
-server.proxy
+server: proxy
 {{- end -}}
