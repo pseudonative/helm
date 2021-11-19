@@ -12,5 +12,5 @@ service:
   port: 80
   targetPort: 80
 
-proxy
+proxy:
   enabled: true
