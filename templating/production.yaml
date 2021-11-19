@@ -1,16 +1,16 @@
 
 deployment:
-  name: helmdeployment
+  name: production
   replicaCount: 1
   image:
     app: nginx
     version: latest
 
 service:
-  name: helmservice
+  name: production
   type: LoadBalancer
-  port: 80
-  targetPort: 80
+  port: 8080
+  targetPort: 8080
 
   proxy
-    enabled: false
+    enabled: true
