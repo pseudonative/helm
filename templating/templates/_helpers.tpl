@@ -1,7 +1,7 @@
 {{/*
 Expand the name of the chart.
 */}}
-{{- define "templating.name" -}}
+{{- define "myfirstchart.name" -}}
 {{- default .Chart.Name .Values.nameOverride | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
@@ -10,7 +10,7 @@ Create a default fully qualified app name.
 We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 If release name contains chart name it will be used as a full name.
 */}}
-{{- define "templating.fullname" -}}
+{{- define "myfirstchart.fullname" -}}
 {{- if .Values.fullnameOverride }}
 {{- .Values.fullnameOverride | trunc 63 | trimSuffix "-" }}
 {{- else }}
@@ -26,16 +26,16 @@ If release name contains chart name it will be used as a full name.
 {{/*
 Create chart name and version as used by the chart label.
 */}}
-{{- define "templating.chart" -}}
+{{- define "myfirstchart.chart" -}}
 {{- printf "%s-%s" .Chart.Name .Chart.Version | replace "+" "_" | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
 Common labels
 */}}
-{{- define "templating.labels" -}}
-helm.sh/chart: {{ include "templating.chart" . }}
-{{ include "templating.selectorLabels" . }}
+{{- define "myfirstchart.labels" -}}
+helm.sh/chart: {{ include "myfirstchart.chart" . }}
+{{ include "myfirstchart.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
 app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
 {{- end }}
@@ -45,17 +45,17 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{/*
 Selector labels
 */}}
-{{- define "templating.selectorLabels" -}}
-app.kubernetes.io/name: {{ include "templating.name" . }}
+{{- define "myfirstchart.selectorLabels" -}}
+app.kubernetes.io/name: {{ include "myfirstchart.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
 Create the name of the service account to use
 */}}
-{{- define "templating.serviceAccountName" -}}
+{{- define "myfirstchart.serviceAccountName" -}}
 {{- if .Values.serviceAccount.create }}
-{{- default (include "templating.fullname" .) .Values.serviceAccount.name }}
+{{- default (include "myfirstchart.fullname" .) .Values.serviceAccount.name }}
 {{- else }}
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
