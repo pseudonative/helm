@@ -14,7 +14,7 @@ spec:
       port: 8001
       {{- else }}
       port: 8180
-      {{-- end }}
+      {{- end }}
       protocol: TCP
       name: http
   selector: {{- include "mylabels" . | nindent 4 }}
